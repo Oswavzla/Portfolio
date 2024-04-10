@@ -1,4 +1,4 @@
-/*Program to count how man bills do you have.*/
+/*Program to count how man bills do you have using functions.*/
 
 #include<iostream>
 
