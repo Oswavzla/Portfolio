@@ -11,24 +11,24 @@ main()
 {
 	setlocale(LC_ALL,"spanish");
 	
-	string bomba1,v_succ101,v_desc201,SW201;      //Bomba 1, v·lvula de succiÛn 101, v·lvula de descarga 201, switch de flujo 201.
-	double TP201=0;                                 //Transmisor de presiÛn 201 (Bomba1).
-	string bomba2,v_succ102,v_desc202,SW202;      //Bomba 2, v·lvula de succiÛn 102, v·lvula de descarga 202, switch de flujo 202.
-	double TP202=0;                                  //Transmisor de presiÛn 202 (Bomba2).
-	string bomba3,v_succ103,v_desc203,SW203;      //Bomba 3, v·lvula de succiÛn 103, v·lvula de descarga 203, switch de flujo 203.
-	double TP203=0;                                   //Transmisor de presiÛn 203 (Bomba3).
-	int rotacion;                                        //Variable donde se ingresa el tiempo de rotaciÛn.
+	string bomba1,v_succ101,v_desc201,SW201;      //Bomba 1, v√°lvula de succi√≥n 101, v√°lvula de descarga 201, switch de flujo 201.
+	double TP201=0;                                 //Transmisor de presi√≥n 201 (Bomba1).
+	string bomba2,v_succ102,v_desc202,SW202;      //Bomba 2, v√°lvula de succi√≥n 102, v√°lvula de descarga 202, switch de flujo 202.
+	double TP202=0;                                  //Transmisor de presi√≥n 202 (Bomba2).
+	string bomba3,v_succ103,v_desc203,SW203;      //Bomba 3, v√°lvula de succi√≥n 103, v√°lvula de descarga 203, switch de flujo 203.
+	double TP203=0;                                   //Transmisor de presi√≥n 203 (Bomba3).
+	int rotacion;                                        //Variable donde se ingresa el tiempo de rotaci√≥n.
 	double caudal1=0,caudal2=0,caudal3=0;                   //Caudales de etileno (expresados en Gal/min).
 	double caudal1_seg=0, caudal2_seg=0, caudal3_seg=0;  //Caudales de etileno (Expresados en Gal/seg para poder sumarlos al acumulado).
 	double galones_acum=0;                                //Galones acumulados.
-	int caso=0;                                           //Indica cu·l de los casos hay que tomar dependiendo del estado de las bombas (ENCENDIDA/APAGADA).
-	int caso_1encendida;                                  //Indica cu·l de los casos hay que tomar dependiendo del estado de las bombas (ENCENDIDA/APAGADA) (Caso especial, cuando solo una bomba esta encendida).
+	int caso=0;                                           //Indica cu√°l de los casos hay que tomar dependiendo del estado de las bombas (ENCENDIDA/APAGADA).
+	int caso_1encendida;                                  //Indica cu√°l de los casos hay que tomar dependiendo del estado de las bombas (ENCENDIDA/APAGADA) (Caso especial, cuando solo una bomba esta encendida).
 	int caso_apagadas;
 	int ciclos=0;                                         //Contabiliza cuantas veces se repite los ciclos de rotacion.
 	int lector=0;
 	int tiempo;
 	string old_succ101,old_desc201,old_succ102,old_desc202,old_succ103,old_desc203;  //lectura anterior del texto.
-	int old_rotacion;																 //Lectuta anterior de la rotaciÛn.
+	int old_rotacion;																 //Lectuta anterior de la rotaci√≥n.
 	string pantalla="ON";
 	
 	inicio:
@@ -58,12 +58,12 @@ main()
 	old_rotacion=rotacion;
 	
 	
-	//Solo se cambian el estado de las v·lvulas cuando el programa lea un texto diferente al anterior y adem·s cuando se haya concluido el tiempo de rotaciÛn
+	//Solo se cambian el estado de las v√°lvulas cuando el programa lea un texto diferente al anterior y adem√°s cuando se haya concluido el tiempo de rotaci√≥n
 	
 	if(lector==0)
 	{
 		
-		//ValidaciÛn de los datos leÌdos del texto
+		//Validaci√≥n de los datos le√≠dos del texto
 	
 		if(v_succ101=="ABIERTA" or v_succ101=="abierta" or v_succ101=="Abierta")
 		{
@@ -200,7 +200,7 @@ main()
 		
 		//Validamos cual de los casos de Encendido/Apagado de la bomba tenemos.
 	
-		//Evaluamos en el caso de que se abran las 3 v·lvulas de succiÛn, el programa autom·ticamente apaga una bomba.
+		//Evaluamos en el caso de que se abran las 3 v√°lvulas de succi√≥n, el programa autom√°ticamente apaga una bomba.
 	
 		if(bomba1=="ENCENDIDA" and bomba2=="ENCENDIDA" and bomba3=="ENCENDIDA")
 		{
@@ -210,7 +210,7 @@ main()
 			caso=1;	
 		}
 	
-		//Evaluamos los casos en que 2 bombas estÈn prendidas.
+		//Evaluamos los casos en que 2 bombas est√©n prendidas.
 	
 		if(bomba1=="ENCENDIDA" and bomba2=="ENCENDIDA" and bomba3=="APAGADA")
 		{
@@ -227,7 +227,7 @@ main()
 			caso=3;
 		}
 	
-	//Evaluamos los casos en que 1 sola bomba estÈ prendida.
+	//Evaluamos los casos en que 1 sola bomba est√© prendida.
 	
 		if(bomba1=="ENCENDIDA" and bomba2=="APAGADA" and bomba3=="APAGADA")
 		{
@@ -256,19 +256,19 @@ main()
 	{
 		system("cls");
 		
-		cout<<"Tiempo establecido para la rotaciÛn de las bombas = "<<rotacion<<" segundos"<<endl<<endl;
-		cout<<"Siguiente rotaciÛn en = "<<tiempo<<" segundos"<<endl<<endl;
+		cout<<"Tiempo establecido para la rotaci√≥n de las bombas = "<<rotacion<<" segundos"<<endl<<endl;
+		cout<<"Siguiente rotaci√≥n en = "<<tiempo<<" segundos"<<endl<<endl;
 		cout<<"       Bomba 1                               Bomba 2                                       Bomba 3"<<endl<<endl;
 		cout<<"Estado = "<<bomba1<<"                        Estado = "<<bomba2<<"                                Estado = "<<bomba3<<""<<endl;
 		cout<<"Switch de flujo = "<<SW201<<"                   Switch de flujo = "<<SW202<<"                           Switch de flujo = "<<SW203<<""<<endl;
-		cout<<"PresiÛn = "<<TP201<<" psi                         PresiÛn = "<<TP202<<" psi                                 PresiÛn = "<<TP203<<" psi"<<endl;
+		cout<<"Presi√≥n = "<<TP201<<" psi                         Presi√≥n = "<<TP202<<" psi                                 Presi√≥n = "<<TP203<<" psi"<<endl;
 		cout<<"Gal/min = "<<caudal1<<"                             Gal/min = "<<caudal2<<"                                     Gal/min = "<<caudal3<<""<<endl<<endl<<endl;
 		cout<<"Total de galones acumulados = "<<galones_acum<<" Gal"<<endl<<endl<<endl<<endl;
-		cout<<"Importante-----> Los galones van aumentando cada segundo, dependiendo de las v·lvulas de succiÛn y descarga."<<endl;
-		cout<<"Importante-----> Si la bomba est· apagada, y tiene una presiÛn mayor a los 50 psi, la bomba no se prender·"<<endl;
-		cout<<"hasta que se abra la v·lvula de descarga, y pueda disminuir la presiÛn."<<endl;
-		cout<<"Importante-----> Si se encuentra trabajando solo una bomba, y las otras est·n apagadas (presiÛn>50/Switch de flujo= OFF)"<<endl;
-		cout<<"no habr· rotaciÛn."<<endl;
+		cout<<"Importante-----> Los galones van aumentando cada segundo, dependiendo de las v√°lvulas de succi√≥n y descarga."<<endl;
+		cout<<"Importante-----> Si la bomba est√° apagada, y tiene una presi√≥n mayor a los 50 psi, la bomba no se prender√°"<<endl;
+		cout<<"hasta que se abra la v√°lvula de descarga, y pueda disminuir la presi√≥n."<<endl;
+		cout<<"Importante-----> Si se encuentra trabajando solo una bomba, y las otras est√°n apagadas (presi√≥n>50/Switch de flujo= OFF)"<<endl;
+		cout<<"no habr√° rotaci√≥n."<<endl;
 		pantalla="OFF";
 	}
 	
@@ -285,7 +285,7 @@ main()
 	{
 		
 		
-		//Validamos si se cumple el tiempo de rotaciÛn, para rotar las bombas (Caso en el que las 3 bombas no presentan fallas).
+		//Validamos si se cumple el tiempo de rotaci√≥n, para rotar las bombas (Caso en el que las 3 bombas no presentan fallas).
 		
 		if(rotacion==ciclos and v_succ103=="ABIERTA" and TP203<50)
 		{	
@@ -298,11 +298,11 @@ main()
 			goto repetir;
 		}
 		
-		//En caso de que la bomba 3 tenga una presiÛn mayor a 50 psi, o el Switch de flujo= OFF, hacemos la rotacion con las 2 bombas operativas.
+		//En caso de que la bomba 3 tenga una presi√≥n mayor a 50 psi, o el Switch de flujo= OFF, hacemos la rotacion con las 2 bombas operativas.
 		
-		//Cuando el programa detecta que la bomba 3 tiene una falla(presiÛn>50 o Switch de flujo= OFF), se apaga directamente la bomba 1.
+		//Cuando el programa detecta que la bomba 3 tiene una falla(presi√≥n>50 o Switch de flujo= OFF), se apaga directamente la bomba 1.
 		
-		//RotaciÛn a la bomba 2.
+		//Rotaci√≥n a la bomba 2.
 		
 		if(TP203>50 or SW203=="OFF")
 		{
@@ -319,7 +319,7 @@ main()
 			ciclos=0;
 		}
 		
-		//SimulaciÛn del Switch de flujo (SW201) de la bomba 1 
+		//Simulaci√≥n del Switch de flujo (SW201) de la bomba 1 
 	
 		if(SW201=="OFF" and v_succ101=="ABIERTA")
 		{
@@ -334,7 +334,7 @@ main()
 		}
 	
 	
-		//SimulaciÛn del Switch de flujo (SW202) de la bomba 2 
+		//Simulaci√≥n del Switch de flujo (SW202) de la bomba 2 
 	
 		if(SW202=="OFF" and v_succ102=="ABIERTA")
 		{
@@ -348,7 +348,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//SimulaciÛn de presiÛn (TP201) de la bomba 1.
+		//Simulaci√≥n de presi√≥n (TP201) de la bomba 1.
 	
 		if(bomba1=="ENCENDIDA" and v_desc201=="ABIERTA")
 		{
@@ -380,7 +380,7 @@ main()
 	
 	
 	
-		//SimulaciÛn de presiÛn (TP202) de la bomba 2.
+		//Simulaci√≥n de presi√≥n (TP202) de la bomba 2.
 	
 		if(bomba2=="ENCENDIDA" and v_desc202=="ABIERTA")
 		{
@@ -409,7 +409,7 @@ main()
 			pantalla="ON";
 		}	
 		
-		//Cuando se produce la rotaciÛn, cuando la bomba 3 se apaga, y se tiene la v·lvula de descarga abierta, la presiÛn disminuye a cero y el caudal cae a 0.
+		//Cuando se produce la rotaci√≥n, cuando la bomba 3 se apaga, y se tiene la v√°lvula de descarga abierta, la presi√≥n disminuye a cero y el caudal cae a 0.
 	
 		if(bomba3=="APAGADA" and v_desc203=="ABIERTA")
 			{
@@ -419,7 +419,7 @@ main()
 				pantalla="ON";
 			}
 		
-		//Validamos que la presiÛn no sea negativa.
+		//Validamos que la presi√≥n no sea negativa.
 		
 		if(TP201<0)
 		{
@@ -436,7 +436,7 @@ main()
 			TP203=0;
 		}
 	
-		//SimulaciÛn del caudal de la bomba 1.
+		//Simulaci√≥n del caudal de la bomba 1.
 	
 		if(bomba1=="ENCENDIDA" and v_succ101=="ABIERTA" and v_desc201=="ABIERTA")
 		{
@@ -453,7 +453,7 @@ main()
 		}
 	
 	
-   		//SimulaciÛn del caudal de la bomba 2.
+   		//Simulaci√≥n del caudal de la bomba 2.
 	
 		if(bomba2=="ENCENDIDA" and v_succ102=="ABIERTA" and v_desc202=="ABIERTA")
 		{
@@ -474,7 +474,7 @@ main()
 		galones_acum=galones_acum+caudal1_seg+caudal2_seg;
 	
 	
-		//SimulaciÛn del encendido/apagado de la bomba 1.
+		//Simulaci√≥n del encendido/apagado de la bomba 1.
 	
 		if(bomba1=="ENCENDIDA" and TP201>50)
 		{
@@ -498,7 +498,7 @@ main()
 		
 	
 	
-		//SimulaciÛn del encendido/apagado de la bomba 2.
+		//Simulaci√≥n del encendido/apagado de la bomba 2.
 	
 		if(bomba2=="ENCENDIDA" and TP202>50)
 		{
@@ -533,7 +533,7 @@ main()
 	if(caso==2)
 	{
 		
-		//Validamos si se cumple el tiempo de rotaciÛn, para rotar las bombas (Caso en el que las 3 bombas no presentan fallas)
+		//Validamos si se cumple el tiempo de rotaci√≥n, para rotar las bombas (Caso en el que las 3 bombas no presentan fallas)
 		
 		if(rotacion==ciclos and v_succ101=="ABIERTA" and TP201<50)
 		{
@@ -546,11 +546,11 @@ main()
 			goto repetir;
 		}
 		
-		//En caso de que la bomba 1 tenga una presiÛn mayor a 50 psi, o el Switch de flujo= OFF, hacemos la rotacion con las 2 bombas operativas.
+		//En caso de que la bomba 1 tenga una presi√≥n mayor a 50 psi, o el Switch de flujo= OFF, hacemos la rotacion con las 2 bombas operativas.
 		
-		//Cuando el programa detecta que la bomba 1 tiene una falla(presiÛn>50 o Switch de flujo= OFF), se apaga directamente la bomba 2.
+		//Cuando el programa detecta que la bomba 1 tiene una falla(presi√≥n>50 o Switch de flujo= OFF), se apaga directamente la bomba 2.
 		
-		//RotaciÛn a la bomba 3.
+		//Rotaci√≥n a la bomba 3.
 		
 		if(TP201>50 or SW201=="OFF")
 		{
@@ -567,7 +567,7 @@ main()
 			ciclos=0;
 		}
 		
-		//SimulaciÛn del Switch de flujo (SW202) de la bomba 2 
+		//Simulaci√≥n del Switch de flujo (SW202) de la bomba 2 
 	
 		if(SW202=="OFF" and v_succ102=="ABIERTA")
 		{
@@ -583,7 +583,7 @@ main()
 	
 
 	
-		//SimulaciÛn del Switch de flujo (SW203) de la bomba 3 
+		//Simulaci√≥n del Switch de flujo (SW203) de la bomba 3 
 	
 		if(SW203=="OFF" and v_succ103=="ABIERTA")
 		{
@@ -598,7 +598,7 @@ main()
 		}
 		
 		
-		//SimulaciÛn de presiÛn (TP202) de la bomba 2.
+		//Simulaci√≥n de presi√≥n (TP202) de la bomba 2.
 	
 		if(bomba2=="ENCENDIDA" and v_desc202=="ABIERTA")
 		{
@@ -628,7 +628,7 @@ main()
 		}
 	
 	
-		//SimulaciÛn de presiÛn (TP203) de la bomba 3.
+		//Simulaci√≥n de presi√≥n (TP203) de la bomba 3.
 	
 		if(bomba3=="ENCENDIDA" and v_desc203=="ABIERTA")
 		{
@@ -657,7 +657,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//Cuando se produce la rotaciÛn, cuando la bomba 1 se apaga, y se tiene la v·lvula de descarga abierta, la presiÛn disminuye a cero y el caudal cae a 0.
+		//Cuando se produce la rotaci√≥n, cuando la bomba 1 se apaga, y se tiene la v√°lvula de descarga abierta, la presi√≥n disminuye a cero y el caudal cae a 0.
 	
 		if(bomba1=="APAGADA" and v_desc201=="ABIERTA")
 		{
@@ -667,7 +667,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//Validamos que la presiÛn no sea negativa.
+		//Validamos que la presi√≥n no sea negativa.
 		
 		if(TP201<0)
 		{
@@ -685,7 +685,7 @@ main()
 		}
 	
 		
-		//SimulaciÛn del caudal de la bomba 2.
+		//Simulaci√≥n del caudal de la bomba 2.
 	
 		if(bomba2=="ENCENDIDA" and v_succ102=="ABIERTA" and v_desc202=="ABIERTA")
 		{
@@ -702,7 +702,7 @@ main()
 		}
 	
 	
-		//SimulaciÛn del caudal de la bomba 3.
+		//Simulaci√≥n del caudal de la bomba 3.
 	
 		if( bomba3=="ENCENDIDA" and v_succ103=="ABIERTA" and v_desc203=="ABIERTA")
 		{
@@ -724,7 +724,7 @@ main()
 		galones_acum=galones_acum+caudal2_seg+caudal3_seg;
 		
 		
-		//SimulaciÛn del encendido/apagado de la bomba 2.
+		//Simulaci√≥n del encendido/apagado de la bomba 2.
 	
 		if(bomba2=="ENCENDIDA" and TP202>50)
 		{
@@ -747,7 +747,7 @@ main()
 	
 	
 	
-		//SimulaciÛn del encendido/apagado de la bomba 3.
+		//Simulaci√≥n del encendido/apagado de la bomba 3.
 	
 		if(bomba3=="ENCENDIDA" and TP203>50)
 		{
@@ -779,7 +779,7 @@ main()
 	if(caso==3)
 	{
 		
-		//Validamos si se cumple el tiempo de rotaciÛn, para rotar las bombas (Caso en el que las 3 bombas no presentan fallas).
+		//Validamos si se cumple el tiempo de rotaci√≥n, para rotar las bombas (Caso en el que las 3 bombas no presentan fallas).
 		
 		if(rotacion==ciclos and v_succ102=="ABIERTA" and TP202<50)
 		{
@@ -792,11 +792,11 @@ main()
 			goto repetir;
 		}
 		
-		//En caso de que la bomba 2 tenga una presiÛn mayor a 50 psi, o no el Switch de flujo= OFF, hacemos la rotacion con las 2 bombas operativas.
+		//En caso de que la bomba 2 tenga una presi√≥n mayor a 50 psi, o no el Switch de flujo= OFF, hacemos la rotacion con las 2 bombas operativas.
 		
-		//Cuando el programa detecta que la bomba 2 tiene una falla(presiÛn>50 o Switch de flujo= OFF), se apaga directamente la bomba 3.
+		//Cuando el programa detecta que la bomba 2 tiene una falla(presi√≥n>50 o Switch de flujo= OFF), se apaga directamente la bomba 3.
 		
-		//RotaciÛn a la bomba 1.
+		//Rotaci√≥n a la bomba 1.
 		
 		if(TP202>50 or SW202=="OFF")
 		{
@@ -814,7 +814,7 @@ main()
 		}
 		
 		
-		//SimulaciÛn del Switch de flujo (SW201) de la bomba 1 
+		//Simulaci√≥n del Switch de flujo (SW201) de la bomba 1 
 	
 		if(SW201=="OFF" and v_succ101=="ABIERTA")
 		{
@@ -828,7 +828,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//SimulaciÛn del Switch de flujo (SW203) de la bomba 3 
+		//Simulaci√≥n del Switch de flujo (SW203) de la bomba 3 
 	
 		if(SW203=="OFF" and v_succ103=="ABIERTA")
 		{
@@ -843,7 +843,7 @@ main()
 		}
 	
 	
-		//SimulaciÛn de presiÛn (TP201) de la bomba 1.
+		//Simulaci√≥n de presi√≥n (TP201) de la bomba 1.
 	
 		if(bomba1=="ENCENDIDA" and v_desc201=="ABIERTA")
 		{
@@ -873,7 +873,7 @@ main()
 		}
 		
 		
-		//SimulaciÛn de presiÛn (TP203) de la bomba 3.
+		//Simulaci√≥n de presi√≥n (TP203) de la bomba 3.
 	
 		if(bomba3=="ENCENDIDA" and v_desc203=="ABIERTA")
 		{
@@ -902,7 +902,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//Cuando se produce la rotaciÛn, cuando la bomba 2 se apaga, y se tiene la v·lvula de descarga abierta, la presiÛn disminuye a cero y el caudal cae a 0.
+		//Cuando se produce la rotaci√≥n, cuando la bomba 2 se apaga, y se tiene la v√°lvula de descarga abierta, la presi√≥n disminuye a cero y el caudal cae a 0.
 	
 		if(bomba2=="APAGADA" and v_desc202=="ABIERTA")
 		{
@@ -912,7 +912,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//Validamos que la presiÛn no sea negativa.
+		//Validamos que la presi√≥n no sea negativa.
 		
 		if(TP201<0)
 		{
@@ -930,7 +930,7 @@ main()
 		}
 		
 		
-		//SimulaciÛn del caudal de la bomba 1.
+		//Simulaci√≥n del caudal de la bomba 1.
 	
 		if(bomba1=="ENCENDIDA" and v_succ101=="ABIERTA" and v_desc201=="ABIERTA")
 		{
@@ -947,7 +947,7 @@ main()
 		}
 		
 		
-		//SimulaciÛn del caudal de la bomba 3.
+		//Simulaci√≥n del caudal de la bomba 3.
 	
 		if(bomba3=="ENCENDIDA" and v_succ103=="ABIERTA" and v_desc203=="ABIERTA")
 		{
@@ -970,7 +970,7 @@ main()
 	
 	
 		
-		//SimulaciÛn del encendido/apagado de la bomba 1.
+		//Simulaci√≥n del encendido/apagado de la bomba 1.
 	
 		if(bomba1=="ENCENDIDA" and TP201>50)
 		{
@@ -992,7 +992,7 @@ main()
 		}
 		
 		
-		//SimulaciÛn del encendido/apagado de la bomba 3.
+		//Simulaci√≥n del encendido/apagado de la bomba 3.
 	
 		if(bomba3=="ENCENDIDA" and TP203>50)
 		{
@@ -1021,11 +1021,11 @@ main()
 
 
 
-	//Simulamos el caso de que solo la bomba 1 estÈ prendida.
+	//Simulamos el caso de que solo la bomba 1 est√© prendida.
 	
 	if(caso_1encendida==1)
 	{	
-		//RotaciÛn a la bomba 2.
+		//Rotaci√≥n a la bomba 2.
 	
 		if(rotacion==ciclos and TP202<50)
 		{
@@ -1041,7 +1041,7 @@ main()
 			}
 		}
 		
-		//RotaciÛn a la bomba 3.
+		//Rotaci√≥n a la bomba 3.
 	
 		if(rotacion==ciclos and TP203<50)
 		{
@@ -1059,7 +1059,7 @@ main()
 		
 		
 		
-		//SimulaciÛn del Switch de flujo (SW201) de la bomba 1 
+		//Simulaci√≥n del Switch de flujo (SW201) de la bomba 1 
 	
 		if(SW201=="OFF" and v_succ101=="ABIERTA")
 		{
@@ -1074,7 +1074,7 @@ main()
 		}
 		
 		
-		//SimulaciÛn de presiÛn (TP201) de la bomba 1.
+		//Simulaci√≥n de presi√≥n (TP201) de la bomba 1.
 	
 		if(bomba1=="ENCENDIDA" and v_desc201=="ABIERTA")
 		{
@@ -1103,7 +1103,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//En caso de que las otras dos bombas se encuentren apagadas y con sus v·lvulas de descarga abiertas, la presiÛn disminuye.
+		//En caso de que las otras dos bombas se encuentren apagadas y con sus v√°lvulas de descarga abiertas, la presi√≥n disminuye.
 		
 		if(bomba2=="APAGADA" and v_desc202=="ABIERTA")
 		{
@@ -1117,7 +1117,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//Validamos que la presiÛn no sea negativa.
+		//Validamos que la presi√≥n no sea negativa.
 		
 		if(TP201<0)
 		{
@@ -1134,7 +1134,7 @@ main()
 			TP203=0;
 		}
 		
-		//SimulaciÛn del caudal de la bomba 1.
+		//Simulaci√≥n del caudal de la bomba 1.
 	
 		if(bomba1=="ENCENDIDA" and v_succ101=="ABIERTA" and v_desc201=="ABIERTA")
 		{
@@ -1155,7 +1155,7 @@ main()
 		galones_acum=galones_acum+caudal1_seg;
 		
 		
-		//SimulaciÛn del encendido/apagado de la bomba 1.
+		//Simulaci√≥n del encendido/apagado de la bomba 1.
 	
 		if(bomba1=="ENCENDIDA" and TP201>50)
 		{
@@ -1170,7 +1170,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//En caso de que la bomba 1 se apague por superar la presiÛn de 50 psi, si las otras bombas se encuentran operativas, se prender·n autom·ticamente si sus presiones son iferiores a 20 psi y si Switch de flujo= ON.
+		//En caso de que la bomba 1 se apague por superar la presi√≥n de 50 psi, si las otras bombas se encuentran operativas, se prender√°n autom√°ticamente si sus presiones son iferiores a 20 psi y si Switch de flujo= ON.
 		
 		if(bomba1=="APAGADA" and TP201>50)
 		{
@@ -1189,7 +1189,7 @@ main()
 			}
 		}
 		
-		//Cuando se recuperan las bombas, vuelven a prenderse (PresiÛn<20 y Switch de flujo= OFF).
+		//Cuando se recuperan las bombas, vuelven a prenderse (Presi√≥n<20 y Switch de flujo= OFF).
 		
 		
 		if(bomba2=="APAGADA" and TP202<20 and SW202=="ON")
@@ -1216,12 +1216,12 @@ main()
 	}
 
 	
-	//Simulamos el caso de que solo la bomba 2 estÈ prendida.
+	//Simulamos el caso de que solo la bomba 2 est√© prendida.
 	
 	if(caso_1encendida==2)
 	{
 		
-		//RotaciÛn a la bomba 1.
+		//Rotaci√≥n a la bomba 1.
 	
 		if(rotacion==ciclos and TP201<50)
 		{
@@ -1237,7 +1237,7 @@ main()
 			}
 		}
 		
-		//RotaciÛn a la bomba 3.
+		//Rotaci√≥n a la bomba 3.
 	
 		if(rotacion==ciclos and TP203<50)
 		{
@@ -1254,7 +1254,7 @@ main()
 		}
 		
 		
-		//SimulaciÛn del Switch de flujo (SW202) de la bomba 2 
+		//Simulaci√≥n del Switch de flujo (SW202) de la bomba 2 
 	
 		if(SW202=="OFF" and v_succ102=="ABIERTA")
 		{
@@ -1269,7 +1269,7 @@ main()
 		}
 		
 		
-		//SimulaciÛn de presiÛn (TP202) de la bomba 2.
+		//Simulaci√≥n de presi√≥n (TP202) de la bomba 2.
 	
 		if(bomba2=="ENCENDIDA" and v_desc202=="ABIERTA")
 		{
@@ -1298,7 +1298,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//En caso de que las otras dos bombas se encuentren apagadas y con sus v·lvulas de descarga abiertas, la presiÛn disminuye.
+		//En caso de que las otras dos bombas se encuentren apagadas y con sus v√°lvulas de descarga abiertas, la presi√≥n disminuye.
 		
 		if(bomba1=="APAGADA" and v_desc201=="ABIERTA")
 		{
@@ -1312,7 +1312,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//Validamos que la presiÛn no sea negativa.
+		//Validamos que la presi√≥n no sea negativa.
 		
 		if(TP201<0)
 		{
@@ -1330,7 +1330,7 @@ main()
 		}
 		
 		
-		 //SimulaciÛn del caudal de la bomba 2.
+		 //Simulaci√≥n del caudal de la bomba 2.
 	
 		if(bomba2=="ENCENDIDA" and v_succ102=="ABIERTA" and v_desc202=="ABIERTA")
 		{
@@ -1351,7 +1351,7 @@ main()
 		galones_acum=galones_acum+caudal2_seg;
 		
 		
-		//SimulaciÛn del encendido/apagado de la bomba 2.
+		//Simulaci√≥n del encendido/apagado de la bomba 2.
 	
 		if(bomba2=="ENCENDIDA" and TP202>50)
 		{
@@ -1366,7 +1366,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//En caso de que la bomba 2 se apague por superar la presiÛn de 50 psi, si las otras bombas se encuentran operativas, se prender·n autom·ticamente si sus presiones son iferiores a 20 psi y si Switch de flujo= ON.
+		//En caso de que la bomba 2 se apague por superar la presi√≥n de 50 psi, si las otras bombas se encuentran operativas, se prender√°n autom√°ticamente si sus presiones son iferiores a 20 psi y si Switch de flujo= ON.
 		
 		if(bomba2=="APAGADA" and TP202>50)
 		{
@@ -1385,7 +1385,7 @@ main()
 			}
 		}
 		
-		//Cuando se recuperan las bombas, vuelven a prenderse (PresiÛn<20 y Switch de flujo= OFF).
+		//Cuando se recuperan las bombas, vuelven a prenderse (Presi√≥n<20 y Switch de flujo= OFF).
 		
 		
 		if(bomba1=="APAGADA" and TP201<20 and SW201=="ON")
@@ -1409,12 +1409,12 @@ main()
 
 	
 	
-	//Simulamos el caso de que solo la bomba 3 estÈ prendida.
+	//Simulamos el caso de que solo la bomba 3 est√© prendida.
 	
 	if(caso_1encendida==3)
 	{
 		
-		//RotaciÛn a la bomba 1.
+		//Rotaci√≥n a la bomba 1.
 	
 		if(rotacion==ciclos and TP201<50)
 		{
@@ -1430,7 +1430,7 @@ main()
 			}
 		}
 		
-		//RotaciÛn a la bomba 2.
+		//Rotaci√≥n a la bomba 2.
 	
 		if(rotacion==ciclos and TP202<50)
 		{
@@ -1449,7 +1449,7 @@ main()
 		
 		
 		
-		//SimulaciÛn del Switch de flujo (SW203) de la bomba 3 
+		//Simulaci√≥n del Switch de flujo (SW203) de la bomba 3 
 	
 		if(SW203=="OFF" and v_succ103=="ABIERTA")
 		{
@@ -1464,7 +1464,7 @@ main()
 		}
 		
 		
-		//SimulaciÛn de presiÛn (TP203) de la bomba 3.
+		//Simulaci√≥n de presi√≥n (TP203) de la bomba 3.
 	
 		if(bomba3=="ENCENDIDA" and v_desc203=="ABIERTA")
 		{
@@ -1493,7 +1493,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//En caso de que las otras dos bombas se encuentren apagadas y con sus v·lvulas de descarga abiertas, la presiÛn disminuye.
+		//En caso de que las otras dos bombas se encuentren apagadas y con sus v√°lvulas de descarga abiertas, la presi√≥n disminuye.
 		
 		if(bomba1=="APAGADA" and v_desc201=="ABIERTA")
 		{
@@ -1507,7 +1507,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//Validamos que la presiÛn no sea negativa.
+		//Validamos que la presi√≥n no sea negativa.
 		
 		if(TP201<0)
 		{
@@ -1525,7 +1525,7 @@ main()
 		}
 		
 		
-		//SimulaciÛn del caudal de la bomba 3.
+		//Simulaci√≥n del caudal de la bomba 3.
 	
 		if(bomba3=="ENCENDIDA" and v_succ103=="ABIERTA" and v_desc203=="ABIERTA")
 		{
@@ -1547,7 +1547,7 @@ main()
 		galones_acum=galones_acum+caudal3_seg;
 		
 		
-		//SimulaciÛn del encendido/apagado de la bomba 3.
+		//Simulaci√≥n del encendido/apagado de la bomba 3.
 	
 		if(bomba3=="ENCENDIDA" and TP203>50)
 		{
@@ -1562,7 +1562,7 @@ main()
 			pantalla="ON";
 		}
 		
-		//En caso de que la bomba 3 se apague por superar la presiÛn de 50 psi, si las otras bombas se encuentran operativas, se prender·n autom·ticamente si sus presiones son iferiores a 20 psi y si Switch de flujo= ON.
+		//En caso de que la bomba 3 se apague por superar la presi√≥n de 50 psi, si las otras bombas se encuentran operativas, se prender√°n autom√°ticamente si sus presiones son iferiores a 20 psi y si Switch de flujo= ON.
 		
 		if(bomba3=="APAGADA" and TP203>50)
 		{
@@ -1584,7 +1584,7 @@ main()
 		}
 		
 		
-		//Cuando se recuperan las bombas, vuelven a prenderse (PresiÛn<20 y Switch de flujo= OFF).
+		//Cuando se recuperan las bombas, vuelven a prenderse (Presi√≥n<20 y Switch de flujo= OFF).
 		
 		
 		if(bomba1=="APAGADA" and TP201<20 and SW201=="ON")
