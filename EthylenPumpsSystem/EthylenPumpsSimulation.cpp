@@ -33,7 +33,7 @@ main()
 	
 	inicio:
 	
-	ifstream leer("C:\\Users\\User\\Documents\\Programas C++\\Simulacion de sistemas de control\\Parcial III.txt");
+	ifstream leer("C:\\Users\\Oswaldo\\Desktop\\ControlCenter.txt");
 	
 	leer>>v_succ101>>v_desc201>>v_succ102>>v_desc202>>v_succ103>>v_desc203>>rotacion;
 
