@@ -1,0 +1,10 @@
+   ABIERTA	      	 ABIERTA       	      ABIERTA             ABIERTA             ABIERTA           ABIERTA                  30
+ 
+     V101                 V201                 V102                 V202                V103              V203        	    Tiempo de rotación
+
+ Válvula de             Válvula de           Válvula de           Válvula de          Válvula de        Válvula de              (Segundos)
+succión (V101)        descarga (V201)      succión (V102)       descarga (V202)     succión (V103)    descarga (V203)
+
+    Bomba 1              Bomba 1              Bomba 2              Bomba 2             Bomba 3           Bomba 3                
+
+(ABIERTA/CERRADA)    (ABIERTA/CERRADA)   (ABIERTA/CERRADA)   (ABIERTA/CERRADA)   (ABIERTA/CERRADA)  (ABIERTA/CERRADA)  		
